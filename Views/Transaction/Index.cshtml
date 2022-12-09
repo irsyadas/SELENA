@@ -1,0 +1,83 @@
+﻿@model IEnumerable<BankTransactions.Models.Transaction>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Transaction</h1>
+
+<div class="offset-10">
+    <a asp-action="Create" class="btn btn-sm btn-success">
+        <i class="fa-sharp fa-plus">
+            <h8>Add New Transaction</h8>
+        </i>
+    </a>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BeneficiaryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BankName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SWIFTCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BeneficiaryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BankName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SWIFTCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                <div class="btn-group btn-group-sm gap-2">
+                        <a asp-action="Edit" asp-route-id="@item.TransactionId" class="btn btn-sm btn-warning">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                            <h9>Edit</h9>
+                    </a>
+                    <a asp-action="Details" asp-route-id="@item.TransactionId" class="btn btn-sm btn-info">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <h9>Details</h9>
+                    </a>
+                    <form asp-action="Delete" asp-route-id="@item.TransactionId">
+                        <button type="submit" class="btn btn-sm btn-danger" style="background-color:red" onclick="return confirm('Are you sure to delete this record?')">
+                            <i class="fa-regular fa-trash-can"></i>
+                            <h9>Delete</h9>
+                        </button>
+                    </form>
+                </div>
+                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

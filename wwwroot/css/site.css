@@ -1,0 +1,36 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.btn-primary {
+    text-transform: uppercase;
+    font-weight: 500;
+    position: relative;
+    right: -470px;
+}
+
+.btn-secondary {
+    text-transform: uppercase;
+    font-weight: 500;
+    position: relative;
+    right: -460px;
+}
+
+td {
+    vertical-align:middle;
+}
